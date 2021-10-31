@@ -60,7 +60,8 @@ class GoClimateNeutralAPI:
         for currency in self.currencies:
             currencies += "currencies[]={}".format(currency)
 
-        params = "{}&cabin_class=economy&{}".format(segments, currencies)
+        params = "{}&cabin_class={}&{}".format(segments, self.cabin_class, currencies)
+##        params = "{}&cabin_class=economy&{}".format(segments, currencies)
         response = requests.get(
             _URL, params=params, auth=HTTPBasicAuth(self.key, None),
         )
