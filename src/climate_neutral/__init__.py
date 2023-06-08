@@ -19,7 +19,8 @@ import urllib
 import requests
 from requests.auth import HTTPBasicAuth
 
-_URL = "https://api.goclimateneutral.org/v1/flight_footprint"
+#_URL = "https://api.goclimateneutral.org/v1/flight_footprint"
+_URL = "https://api.goclimate.com/v1/flight_footprint"
 # _URL = "http://localhost:8080"
 CLASS_ECONOMY = "economy"
 
@@ -60,7 +61,8 @@ class GoClimateNeutralAPI:
         for currency in self.currencies:
             currencies += "currencies[]={}".format(currency)
 
-        params = "{}&cabin_class=economy&{}".format(segments, currencies)
+        params = "{}&cabin_class={}&{}".format(segments, self.cabin_class, currencies)
+##        params = "{}&cabin_class=economy&{}".format(segments, currencies)
         response = requests.get(
             _URL, params=params, auth=HTTPBasicAuth(self.key, None),
         )
