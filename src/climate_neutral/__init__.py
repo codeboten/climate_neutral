@@ -19,7 +19,8 @@ import urllib
 import requests
 from requests.auth import HTTPBasicAuth
 
-_URL = "https://api.goclimateneutral.org/v1/flight_footprint"
+#_URL = "https://api.goclimateneutral.org/v1/flight_footprint"
+_URL = "https://api.goclimate.com/v1/flight_footprint"
 # _URL = "http://localhost:8080"
 CLASS_ECONOMY = "economy"
 
